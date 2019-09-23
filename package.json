@@ -1,0 +1,14 @@
+{
+  "name": "chatrooms",
+  "version": "0.0.1",
+  "description": "room chat server",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "jquery": "^3.3.1",
+    "mime": "~1.2.7",
+    "socket.io": "~0.9.6"
+  }
+}

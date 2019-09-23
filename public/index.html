@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>chat</title>
+    <style>
+        body {
+            padding: 50px;
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        }
+
+        a {
+            color: #00B7Ef;
+        }
+
+        #content {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #room {
+            background-color: #ddd;
+            margin-bottom: 1em;
+        }
+
+        #messages {
+            width: 690px;
+            height: 300px;
+            overflow: auto;
+            background-color: #eee;
+            margin-bottom: 1em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div id="room"></div>
+        <div id="room-list"></div>
+        <div id="messages"></div>
+
+        <form id="send-form">
+            <input id="send-message" />
+            <input id="send-button" type="sumbit" value="send" />
+
+            <div id="help">
+                Chat commeds;
+                <ul>
+                    <li>Change nickname:
+                        <code>/nick [username]</code>
+                    </li>
+                    <li>Join/create room:
+                        <code> /join[room name]</code>
+                    </li>
+                </ul>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/javascripts/chat.js"></script>
+    <script type="text/javascript" src="/javascripts/chat_ui.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script type="text/javascript">  
+        document.write(returnCitySN["cip"] + ',' + returnCitySN["cname"])  
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(show_map,handle_error,
+            {enableHighAccuracy:true,maximumAge:1000});
+        }else{
+            alert("你的浏览器不支持html5获取地理位置信息")
+        }
+        function show_map(position){
+            debugger
+            var lat = position.coords;
+        }
+        function handle_error(error){
+            alert("错误");
+        }
+    </script>
+</body>
+
+</html>

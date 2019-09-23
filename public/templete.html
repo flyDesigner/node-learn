@@ -1,0 +1,188 @@
+<html dir="ltr" lang="zh" i18n-processed="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google" value="notranslate">
+
+    <style>
+        h1 {
+            border-bottom: 1px solid #c0c0c0;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        td.detailsColumn {
+            -webkit-padding-start: 2em;
+            text-align: end;
+            white-space: nowrap;
+        }
+
+        a.icon {
+            -webkit-padding-start: 1.5em;
+            text-decoration: none;
+        }
+
+        a.icon:hover {
+            text-decoration: underline;
+        }
+
+        a.file {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABnRSTlMAAAAAAABupgeRAAABHUlEQVR42o2RMW7DIBiF3498iHRJD5JKHurL+CRVBp+i2T16tTynF2gO0KSb5ZrBBl4HHDBuK/WXACH4eO9/CAAAbdvijzLGNE1TVZXfZuHg6XCAQESAZXbOKaXO57eiKG6ft9PrKQIkCQqFoIiQFBGlFIB5nvM8t9aOX2Nd18oDzjnPgCDpn/BH4zh2XZdlWVmWiUK4IgCBoFMUz9eP6zRN75cLgEQhcmTQIbl72O0f9865qLAAsURAAgKBJKEtgLXWvyjLuFsThCSstb8rBCaAQhDYWgIZ7myM+TUBjDHrHlZcbMYYk34cN0YSLcgS+wL0fe9TXDMbY33fR2AYBvyQ8L0Gk8MwREBrTfKe4TpTzwhArXWi8HI84h/1DfwI5mhxJamFAAAAAElFTkSuQmCC ") left top no-repeat;
+        }
+
+        a.dir {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAd5JREFUeNqMU79rFUEQ/vbuodFEEkzAImBpkUabFP4ldpaJhZXYm/RiZWsv/hkWFglBUyTIgyAIIfgIRjHv3r39MePM7N3LcbxAFvZ2b2bn22/mm3XMjF+HL3YW7q28YSIw8mBKoBihhhgCsoORot9d3/ywg3YowMXwNde/PzGnk2vn6PitrT+/PGeNaecg4+qNY3D43vy16A5wDDd4Aqg/ngmrjl/GoN0U5V1QquHQG3q+TPDVhVwyBffcmQGJmSVfyZk7R3SngI4JKfwDJ2+05zIg8gbiereTZRHhJ5KCMOwDFLjhoBTn2g0ghagfKeIYJDPFyibJVBtTREwq60SpYvh5++PpwatHsxSm9QRLSQpEVSd7/TYJUb49TX7gztpjjEffnoVw66+Ytovs14Yp7HaKmUXeX9rKUoMoLNW3srqI5fWn8JejrVkK0QcrkFLOgS39yoKUQe292WJ1guUHG8K2o8K00oO1BTvXoW4yasclUTgZYJY9aFNfAThX5CZRmczAV52oAPoupHhWRIUUAOoyUIlYVaAa/VbLbyiZUiyFbjQFNwiZQSGl4IDy9sO5Wrty0QLKhdZPxmgGcDo8ejn+c/6eiK9poz15Kw7Dr/vN/z6W7q++091/AQYA5mZ8GYJ9K0AAAAAASUVORK5CYII= ") left top no-repeat;
+        }
+
+        a.up {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAmlJREFUeNpsU0toU0EUPfPysx/tTxuDH9SCWhUDooIbd7oRUUTMouqi2iIoCO6lceHWhegy4EJFinWjrlQUpVm0IIoFpVDEIthm0dpikpf3ZuZ6Z94nrXhhMjM3c8895977BBHB2PznK8WPtDgyWH5q77cPH8PpdXuhpQT4ifR9u5sfJb1bmw6VivahATDrxcRZ2njfoaMv+2j7mLDn93MPiNRMvGbL18L9IpF8h9/TN+EYkMffSiOXJ5+hkD+PdqcLpICWHOHc2CC+LEyA/K+cKQMnlQHJX8wqYG3MAJy88Wa4OLDvEqAEOpJd0LxHIMdHBziowSwVlF8D6QaicK01krw/JynwcKoEwZczewroTvZirlKJs5CqQ5CG8pb57FnJUA0LYCXMX5fibd+p8LWDDemcPZbzQyjvH+Ki1TlIciElA7ghwLKV4kRZstt2sANWRjYTAGzuP2hXZFpJ/GsxgGJ0ox1aoFWsDXyyxqCs26+ydmagFN/rRjymJ1898bzGzmQE0HCZpmk5A0RFIv8Pn0WYPsiu6t/Rsj6PauVTwffTSzGAGZhUG2F06hEc9ibS7OPMNp6ErYFlKavo7MkhmTqCxZ/jwzGA9Hx82H2BZSw1NTN9Gx8ycHkajU/7M+jInsDC7DiaEmo1bNl1AMr9ASFgqVu9MCTIzoGUimXVAnnaN0PdBBDCCYbEtMk6wkpQwIG0sn0PQIUF4GsTwLSIFKNqF6DVrQq+IWVrQDxAYQC/1SsYOI4pOxKZrfifiUSbDUisif7XlpGIPufXd/uvdvZm760M0no1FZcnrzUdjw7au3vu/BVgAFLXeuTxhTXVAAAAAElFTkSuQmCC ") left top no-repeat;
+        }
+
+        html[dir=rtl] a {
+            background-position-x: right;
+        }
+
+        #parentDirLinkBox {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        #listingParsingErrorBox {
+            border: 1px solid black;
+            background: #fae691;
+            padding: 10px;
+            display: none;
+        }
+    </style>
+
+    <title id="title">F:\stsFFF\ 的索引</title>
+
+</head>
+
+<body>
+
+    <div id="listingParsingErrorBox">糟糕！Google Chrome无法解读服务器所发送的数据。请
+        <a href="http://code.google.com/p/chromium/issues/entry">报告错误</a>，并附上
+        <a href="LOCATION">原始列表</a>。</div>
+
+    <h1 id="header">F:\stsFFF\ 的索引</h1>
+
+    <div id="parentDirLinkBox" style="display: block;">
+        <a id="parentDirLink" class="icon up" href="/F:/stsFFF/..">
+            <span id="parentDirText">[上级目录]</span>
+        </a>
+    </div>
+
+    <table>
+        <thead>
+            <tr class="header" id="theader">
+                <th onclick="javascript:sortTable(0);">名称</th>
+                <th class="detailsColumn" onclick="javascript:sortTable(1);">
+                    大小
+                </th>
+                <th class="detailsColumn" onclick="javascript:sortTable(2);">
+                    修改日期
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {{each files}} 
+            <tr>
+                <td data-value="点片区设置原型界面0314/">
+                    <a class="icon dir" href="/F:/stsFFF/%E7%82%B9%E7%89%87%E5%8C%BA%E8%AE%BE%E7%BD%AE%E5%8E%9F%E5%9E%8B%E7%95%8C%E9%9D%A20314/">{{ $value }}</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1552546377">2019/3/14 下午2:52:57</td>
+            </tr>
+            {{/each}}
+            <!-- <tr>
+                <td data-value="点片区设置原型界面0314/">
+                    <a class="icon dir" href="/F:/stsFFF/%E7%82%B9%E7%89%87%E5%8C%BA%E8%AE%BE%E7%BD%AE%E5%8E%9F%E5%9E%8B%E7%95%8C%E9%9D%A20314/">点片区设置原型界面0314/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1552546377">2019/3/14 下午2:52:57</td>
+            </tr>
+            <tr>
+                <td data-value="element-dev/">
+                    <a class="icon dir" href="/F:/stsFFF/element-dev/">element-dev/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1546497817">2019/1/3 下午2:43:37</td>
+            </tr>
+            <tr>
+                <td data-value="inspection-master/">
+                    <a class="icon dir" href="/F:/stsFFF/inspection-master/">inspection-master/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1552026595">2019/3/8 下午2:29:55</td>
+            </tr>
+            <tr>
+                <td data-value="iview-2.0/">
+                    <a class="icon dir" href="/F:/stsFFF/iview-2.0/">iview-2.0/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1545533834">2018/12/23 上午10:57:14</td>
+            </tr>
+            <tr>
+                <td data-value="node-chat-master/">
+                    <a class="icon dir" href="/F:/stsFFF/node-chat-master/">node-chat-master/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1552962203">2019/3/19 上午10:23:23</td>
+            </tr>
+            <tr>
+                <td data-value="nodeLearn/">
+                    <a class="icon dir" href="/F:/stsFFF/nodeLearn/">nodeLearn/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1553248198">2019/3/22 下午5:49:58</td>
+            </tr>
+            <tr>
+                <td data-value="sts-frontend-master/">
+                    <a class="icon dir" href="/F:/stsFFF/sts-frontend-master/">sts-frontend-master/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1551962837">2019/3/7 下午8:47:17</td>
+            </tr>
+            <tr>
+                <td data-value="tree-transfer-master/">
+                    <a class="icon dir" href="/F:/stsFFF/tree-transfer-master/">tree-transfer-master/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1542849388">2018/11/22 上午9:16:28</td>
+            </tr>
+            <tr>
+                <td data-value="vue-devtools/">
+                    <a class="icon dir" href="/F:/stsFFF/vue-devtools/">vue-devtools/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1547776954">2019/1/18 上午10:02:34</td>
+            </tr>
+            <tr>
+                <td data-value="vue2-iview2-admin-master/">
+                    <a class="icon dir" href="/F:/stsFFF/vue2-iview2-admin-master/">vue2-iview2-admin-master/</a>
+                </td>
+                <td class="detailsColumn" data-value="0"></td>
+                <td class="detailsColumn" data-value="1552986428">2019/3/19 下午5:07:08</td>
+            </tr>
+            <tr>
+                <td data-value="1984.txt">
+                    <a class="icon file" draggable="true" href="/F:/stsFFF/1984.txt">1984.txt</a>
+                </td>
+                <td class="detailsColumn" data-value="367184">359 kB</td>
+                <td class="detailsColumn" data-value="1551661936">2019/3/4 上午9:12:16</td>
+            </tr> -->
+        </tbody>
+    </table>   
+</body>
+
+</html>

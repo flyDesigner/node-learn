@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>Polygon intersect Polygon validate Example</title>
+        
+        <link rel="stylesheet" href="http://openlayers.org/dev/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="http://openlayers.org/dev/examples/style.css" type="text/css">
+        <script src="http://openlayers.org/dev/OpenLayers.js"></script>
+        <script src="intersectPolygon.js"></script>
+        <script type="text/javascript">
+            var map, vectors, controls;
+            function init(){
+                map = new OpenLayers.Map('map');
+                var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+                    "http://vmap0.tiles.osgeo.org/wms/vmap0?", {layers: 'basic'});
+    
+                // allow testing of specific renderers via "?renderer=Canvas", etc
+                var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
+                renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
+
+                vectors = new OpenLayers.Layer.Vector("Vector Layer", {
+                    renderers: renderer
+                });
+
+                map.addLayers([wms, vectors]);
+                map.addControl(new OpenLayers.Control.LayerSwitcher());
+                map.addControl(new OpenLayers.Control.MousePosition());
+
+                controls = {
+                    point: new OpenLayers.Control.DrawFeature(vectors,
+                                OpenLayers.Handler.Point),
+                    line: new OpenLayers.Control.DrawFeature(vectors,
+                                OpenLayers.Handler.Path),
+                    polygon: new OpenLayers.Control.DrawFeature(vectors,
+                                OpenLayers.Handler.Polygon),
+                    drag: new OpenLayers.Control.DragFeature(vectors)
+                };
+
+                for(var key in controls) {
+                    map.addControl(controls[key]);
+                }
+
+                map.setCenter(new OpenLayers.LonLat(0, 0), 3); 
+
+                controls.polygon.activate();
+            }
+ 
+ 
+
+            // get polygon rings
+            function getRings (index) {
+                var features = map.layers[1].features;
+                var polygon1 = features[index];
+                var cpts = polygon1.geometry.components;
+                var ret=[];
+                for (var i = 0; i < cpts.length; i++) {
+                    var linearRings = cpts[i].components;
+                    for (var j = 0; j < linearRings.length; j++) {
+                        var point = linearRings[j];
+                        ret.push({x:point.x, y:point.y});
+                    };
+                };
+                return ret;
+            }
+
+            function clearPolygon () {
+                var features = map.layers[1].features;
+                for (var i = features.length - 1; i >= 0; i--) {
+                    features[i].destroy();
+                };
+            }
+
+
+            function main(){ 
+                try{
+                    var r1 = getRings(0);
+                    var r2 = getRings(1);
+                    var flag = intersectsPolygonAndPolygon(r1, r2);
+                    alert("两个面的相交情况为："+flag);
+                }catch(ex){
+                    alert('请先绘制两个面，点击test按钮，验证是否相交！');
+                }
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h1 id="title">Polygon intersect Polygon validate Example</h1>
+
+
+        <div id="map" class="smallmap"></div>
+        
+        <div id="controls"> 
+            <input type="button" value="clear" onclick="clearPolygon();">
+            <input type="button" value="test" onclick="main();">
+        </div>
+
+        <div id="docs"></div>
+    </body>
+</html>
